@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: locket-premium-server
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache, no-store
+      - path: /api/*
+        name: Access-Control-Allow-Origin
+        value: "*"
