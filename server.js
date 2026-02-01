@@ -150,7 +150,7 @@ app.get('/health', (req, res) => {
 
 // 📌 Trang web chính - UI đơn giản
 app.get('/', (req, res) => {
-    res.send(`
+    const html = `
         <!DOCTYPE html>
         <html>
         <head>
@@ -374,7 +374,9 @@ app.get('/', (req, res) => {
             </script>
         </body>
         </html>
-    `);
+    `;
+    
+    res.send(html);
 });
 
 // Khởi động server
